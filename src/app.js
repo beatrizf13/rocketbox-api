@@ -32,6 +32,6 @@ mongoose.connect('mongodb://beatrizf13:beatrizf13@ds121015.mlab.com:21015/rocket
 
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
 
-app.use('/api', require('./routes'));
+app.use('/', require('./routes'));
 
 server.listen(process.env.PORT || 3333);
