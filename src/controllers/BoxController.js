@@ -2,6 +2,12 @@
 const Box = require('../models/Box');
 
 class BoxController {
+  async index(req, res) {
+    const boxes = await Box.find();
+
+    return res.send(boxes);
+  }
+
   async store(req, res) {
     const box = await Box.create(req.body);
 
@@ -15,6 +21,12 @@ class BoxController {
     });
 
     return res.send(box);
+  }
+
+  async destroy(req, res) {
+    await Box.findByIdAndDelete(req.params.id);
+
+    return res.send();
   }
 }
 
