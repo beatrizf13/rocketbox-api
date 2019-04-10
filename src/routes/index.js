@@ -4,12 +4,6 @@ const routes = express.Router();
 const multer = require('multer');
 const multerConfig = require('../config/multer');
 
-routes.get('/', (req, res) => {
-  res.status(200).send({
-    ok: 'ok',
-  });
-});
-
 const BoxController = require('../controllers/BoxController');
 const FileController = require('../controllers/FileController');
 
