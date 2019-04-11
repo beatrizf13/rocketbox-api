@@ -26,12 +26,15 @@ app.use((req, res, next) => {
   return next();
 });
 
-mongoose.connect('mongodb://beatrizf13:beatrizf13@ds121015.mlab.com:21015/rocketbox', {
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  'mongodb://beatrizf13:beatrizf13@ds121015.mlab.com:21015/rocketbox',
+  {
+    useNewUrlParser: true,
+  },
+);
 
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
 
 app.use('/', require('./routes'));
 
-server.listen(process.env.PORT || 3333);
+server.listen(process.env.PORT ? process.env.PORT : 3333);

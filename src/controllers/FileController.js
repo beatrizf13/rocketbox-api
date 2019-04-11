@@ -19,6 +19,11 @@ class FileController {
 
     return res.send(file);
   }
+
+  async destroy(req, res) {
+    await File.findByIdAndDelete(req.params.id);
+    return res.send();
+  }
 }
 
 module.exports = new FileController();

@@ -11,7 +11,11 @@ routes.get('/boxes', BoxController.index);
 routes.post('/boxes', BoxController.store);
 routes.get('/boxes/:id', BoxController.show);
 routes.delete('/boxes/:id', BoxController.destroy);
-
-routes.post('/boxes/:id/files', multer(multerConfig).single('file'), FileController.store);
+routes.delete('/files/:id', FileController.destroy);
+routes.post(
+  '/boxes/:id/files',
+  multer(multerConfig).single('file'),
+  FileController.store,
+);
 
 module.exports = routes;
